@@ -4,11 +4,11 @@
     </h1>
 
     <ul>
-        <li>
-            <a [routerLink="['/admin', 'dashboard']">Main Page</a>
+        <li routerLinkActive="active">
+            <a [routerLink]="['/admin', 'dashboard']">Main Page</a>
         </li>
-        <li>
-            <a [routerLink="['/admin', 'create']">Create Page</a>
+        <li routerLinkActive="active">
+            <a [routerLink]="['/admin', 'create']">Create Page</a>
         </li>
         <li>
             <a href="#" (click)="logout($event)">LogOut</a>
