@@ -41,13 +41,13 @@ export class AuthService {
         const {message} = error.error.error
         switch (message) {
             case 'EMAIL_NOT_FOUND':
-                this.error$.next('Email not Registered')
+                this.error$.next('Email not registered!')
                 break
             case 'INVALID_PASSWORD':
-                this.error$.next('Incorrect Password')
+                this.error$.next('Incorrect Password!')
                 break
             case 'INVALID_EMAIL':
-                this.error$.next('Incorrect Email')
+                this.error$.next('Incorrect Email!')
                 break
         }
         return throwError(error)
