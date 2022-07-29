@@ -16,7 +16,7 @@ export class LoginPageComponent implements OnInit {
     
 
   constructor(
-    private auth: AuthService,
+    public auth: AuthService,
     private router: Router
   ) { }
 
@@ -49,7 +49,9 @@ export class LoginPageComponent implements OnInit {
       this.form.reset
       this.router.navigate(['/admin', 'dashboard'])
       this.submited = false
-    })
+    }, () => {
+      this.submited = false
+    }) 
   }
 
 }
