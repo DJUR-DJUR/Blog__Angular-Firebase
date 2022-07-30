@@ -11,8 +11,6 @@ import { EditPageComponent } from './edit-page/edit-page.component';
 import { SharedModule } from '../shared/shares.module';
 import { AuthGuard } from './shared/services/auth.guard';
 import { SearchPipe } from './shared/search.pipe';
-import { AlertComponent } from './shared/components/alert/alert.component';
-import { AlertService } from './shared/services/alert.service';
 
 
 
@@ -23,8 +21,7 @@ import { AlertService } from './shared/services/alert.service';
     DashboardPageComponent,
     CreatePageComponent,
     EditPageComponent,
-    SearchPipe,
-    AlertComponent
+    SearchPipe
   ],
   imports: [
     CommonModule,
@@ -44,6 +41,6 @@ import { AlertService } from './shared/services/alert.service';
     ])
   ],
   exports: [RouterModule],
-  providers: [AuthGuard, AlertService]
+  providers: [AuthGuard]
 })
 export class AdminModule { }
