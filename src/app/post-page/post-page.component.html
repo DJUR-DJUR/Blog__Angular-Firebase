@@ -1,22 +1,25 @@
-<div class="post">
-    <div class="header">
-        <h1>Post Title</h1>
+<div *ngIf="post$ | async as post; else loading">
+    <div class="post">
+        <div class="header">
+            <h1>{{post.title}}</h1>
 
-        <button 
-        routerLink="/"
-        class="btn btn-link"
-        >Go Home</button>
-    </div>
+            <button 
+            routerLink="/"
+            class="btn btn-link"
+            >Go Home</button>
+        </div>
 
-    <div class="info">
-        <strong>Author</strong>
-        <small>28.07.2022</small>
-    </div>
+        <div class="info">
+            <strong>{{post.author}}</strong>
+            <small>{{post.date | date:'medium':undefined:'ru'}}</small>
+        </div>
 
-    <div>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur, impedit. Veritatis distinctio at voluptas sint obcaecati beatae quos facere quas, sapiente illum, praesentium odit totam maxime voluptatibus nesciunt ipsam officia nisi, corrupti delectus assumenda dolor? Veniam earum neque dolorum, reiciendis atque tenetur molestias repellendus. Placeat iure cupiditate nihil molestiae eligendi?</p>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur, impedit. Veritatis distinctio at voluptas sint obcaecati beatae quos facere quas, sapiente illum, praesentium odit totam maxime voluptatibus nesciunt ipsam officia nisi, corrupti delectus assumenda dolor? Veniam earum neque dolorum, reiciendis atque tenetur molestias repellendus. Placeat iure cupiditate nihil molestiae eligendi?</p>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur, impedit. Veritatis distinctio at voluptas sint obcaecati beatae quos facere quas, sapiente illum, praesentium odit totam maxime voluptatibus nesciunt ipsam officia nisi, corrupti delectus assumenda dolor? Veniam earum neque dolorum, reiciendis atque tenetur molestias repellendus. Placeat iure cupiditate nihil molestiae eligendi?</p>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur, impedit. Veritatis distinctio at voluptas sint obcaecati beatae quos facere quas, sapiente illum, praesentium odit totam maxime voluptatibus nesciunt ipsam officia nisi, corrupti delectus assumenda dolor? Veniam earum neque dolorum, reiciendis atque tenetur molestias repellendus. Placeat iure cupiditate nihil molestiae eligendi?</p>
+        <div>
+            <quill-view-html [content]="post.text"></quill-view-html>
+        </div>
     </div>
 </div>
+
+<ng-template #loading>
+    <p class="text-center">Loading post...</p>
+</ng-template>
